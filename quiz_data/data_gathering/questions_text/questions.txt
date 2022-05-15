@@ -1,0 +1,110 @@
+=
+1 - What item can locate Strongholds?
+2 - What condition does Tonic cure?
+3 - Apples restore how many full Hunger Points?
+4 - What are the most durable type of Leggings?
+5 - Paper is crafted using 3 of what item?
+6 - What item is used to power Enchanting Tables?
+7 - What items do defeated Squids drop?
+8 - What is required to make a Piston "sticky"?
+9 - What item enhances a Potion's level?
+10 - What is used to heal Iron Golems?
+-
+1 - Eye of Ender
+2 - Nausea
+3 - 2
+4 - Netherite
+5 - Sugar Cane
+6 - Lapis Lazuli
+7 - Ink Sac
+8 - Slimeball
+9 - Glowstone Dust
+10 - Iron Ingot
+=
+1 - What are controlled with a Carrot on a Stick?
+2 - Llamas eat Hay Bales and what else?
+3 - Who is the founder of Sky City?
+4 - What do Snow Golems use to attack?
+5 - What animals can make you swim faster?
+6 - What animals bring you gifts when you sleep?
+7 - How many Hearts does a Chicken have?
+8 - What birds can dance around Jukeboxes?
+9 - How many colours of Axolotl are there?
+10 - What is the name of Jesse’s pet Pig?
+-
+1 - Pigs
+2 - Wheat
+3 - Isa
+4 - Snowballs
+5 - Dolphins
+6 - Cats
+7 - 2
+8 - Parrots
+9 - 5
+10 - Reuben
+=
+1 - There are 15 unique Music Discs - True or False?
+2 - The Ender Dragon is Female - True or False?
+3 - Phantoms can fly - True or False?
+4 - Ocelots are only found in Jungles - True or False?
+5 - Cave Spiders cannot poison you - True or False?
+6 - Striders can walk on lava - True or False?
+7 - Iron Trapdoors are made with 5 Iron Ingots - True or False?
+8 - Cats cannot take fall damage - True or False?
+9 - Crossbows can shoot Fireworks - True or False?
+10 - The Thorns enchantment is made on Helmets - True or False?
+-
+1 - False
+2 - True
+3 - True
+4 - True
+5 - False
+6 - True
+7 - False
+8 - True
+9 - True
+10 - False
+=
+1 - Who drops Totems of Undying?
+2 - Endermen have how many Health Points?
+3 - What is the real villain in Minecraft Dungeons?
+4 - What enemy spawns near Ocean Monuments?
+5 - What zombie type is only found in Deserts?
+6 - What enchantment gives unlimited arrows?
+7 - What armour stops Piglins attacking you?
+8 - What weapon does a defeated Drowned drop?
+9 - What do Hoglins become in the Overworld?
+10 - What enemy hides in Infested Blocks?
+-
+1 - Evokers
+2 - 40
+3 - Orb of Dominance
+4 - Guardians
+5 - Husk
+6 - Infinity
+7 - Golden
+8 - Trident
+9 - Zoglins
+10 - Silverfish
+=
+1 - What is Markus Persson's nickname?
+2 - Where was MineCon 2012 held?
+3 - What is the name of Villager unable to trade?
+4 - What ingredient is needed for all Potions?
+5 - Mojang Studios was founded in which country?
+6 - What animals do Wandering Traders keep?
+7 - What is the Job Site Block for a Butcher?
+8 - What was the currency in Minecraft Earth?
+9 - How long does a Potion of Luck last?
+10 - Who bought Mojang Studios in 2014?
+-
+1 - Notch
+2 - Disneyland Paris
+3 - Nitwit
+4 - Water Bottle
+5 - Sweden
+6 - Llamas
+7 - Smoker
+8 - Rubies
+9 - 5 Minutes
+10 - Microsoft

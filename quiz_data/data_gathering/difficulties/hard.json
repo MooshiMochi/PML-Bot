@@ -1,0 +1,637 @@
+{
+    
+    "Where was Minecon 2019 held?": {
+      "options": [
+        "Tennessee",
+        "London",
+        "Oklahoma"
+      ],
+      "answer": "Tennessee"
+    },
+    "Is there a way to play on seed \"0\" in minecraft?": {
+        "options": [
+          "Yes, just enter in when choosing a world seed",
+          "No, the game will generate a random seed instead",
+          "Yes, but you have to enter a combination of special characters to get it"
+        ],
+        "answer": "Yes, but you have to enter a combination of special characters to get it"
+      },
+      "How many damage points does an enderman deal per hit?": {
+        "options": [
+          "2",
+          "4",
+          "1"
+        ],
+        "answer": "4"
+      },"When were diamonds first added in \"Minecraft\"?": {
+        "options": [
+          "In Alpha Version",
+          "In Beta Version",
+          "In Classic version"
+        ],
+        "answer": "In Classic version"
+      },"In which \"Minecraft\" version Zombie was changed to drop rotten flesh instead of feathers?": {
+        "options": [
+          "Version 1.4.3",
+          "Version 1.7",
+          "Version 1.8"
+        ],
+        "answer": "Version 1.8"
+      },"What is full name of Notch who created \"Minecraft\" game?": {
+        "options": [
+          "Markus D. Persson",
+          "Markus J. Persson",
+          "Markus A. Persson"
+        ],
+        "answer": "Markus A. Persson"
+      },"In which \"Minecraft\" version were Skeletons first added?": {
+        "options": [
+          "In Beta version",
+          "In Alpha version",
+          "In Classic version"
+        ],
+        "answer": "In Classic version"
+      },"There are over 150 different type of blocks in minecraft, but which 2 blocks have the exact same looks?": {
+        "options": [
+          "None, every block in minecraft looks different",
+          "Wheat and Sugar Cane",
+          "Stone and Monster Eggs"
+        ],
+        "answer": "Stone and Monster Eggs"
+      },"How much damage do diamond swords deal?": {
+        "options": [
+          "1.5 hearts",
+          "3.5 hearts",
+          "2 hearts"
+        ],
+        "answer": "3.5 hearts"
+      },"How many block can a stone tool mine before breaking?": {
+        "options": [
+          "137",
+          "168",
+          "243"
+        ],
+        "answer": "137"
+      },"Which direction do brewing stands always face?": {
+        "options": [
+          "East",
+          "West",
+          "North"
+        ],
+        "answer": "East"
+      },
+      "Which mob was accidentally created while trying to make a pig?": {
+        "options": [
+          "Stray",
+          "Creeper",
+          "Vex"
+        ],
+        "answer": "Creeper"
+      },"How many types of potions are available to players of minecraft?": {
+        "options": [
+          "28",
+          "36",
+          "32"
+        ],
+        "answer": "32"
+      },"How long does a player have left to live once they run out of drumsticks in the food bar?": {
+        "options": [
+          "2 Minutes",
+          "3 Minutes",
+          "80 Seconds"
+        ],
+        "answer": "80 Seconds"
+      },"What did notch call ender dragons at first?": {
+        "options": [
+          "Shenron",
+          "King Ghidorah",
+          "Raqreqentba"
+        ],
+        "answer": "Raqreqentba"
+      },"How many different types of biomes are there?": {
+        "options": [
+          "94",
+          "67",
+          "78"
+        ],
+        "answer": "78"
+      },
+      "How tall is Steve in feet and inches according to the game's scale?": {
+        "options": [
+          "5'9\"",
+          "6'1\"",
+          "5'11\""
+        ],
+        "answer": "5'11\""
+      },"In which country do they let you play Minecraft in school?": {
+        "options": [
+          "Sweden",
+          "United States",
+          "Norway"
+        ],
+        "answer": "Sweden"
+      },
+      "In which version of the game were skeletons first introduced?": {
+        "options": [
+          "Beta Version",
+          "Snapshot 1.16.3a",
+          "Alpha version"
+        ],
+        "answer": "Alpha version"
+      },"How many night creatures can you find in 'Minecraft'?": {
+        "options": [
+          "Six",
+          "Eight",
+          "Five"
+        ],
+        "answer": "Five"
+      },
+      "How many days did it take to create the first version of 'Minecraft'?": {
+        "options": [
+          "Thirty days",
+          "Ten days",
+          "Six days"
+        ],
+        "answer": "Six days"
+      },        "Which real life animal was recorded to produce the sound effects of the Ghasts?": {
+        "options": [
+          "Fox",
+          "Dog",
+          "Cat"
+        ],
+        "answer": "Cat"
+      },"The 'Minecraft' world is enormous, and is made out of trillions of blocks. If 'Minecraft' was real, how big would it be?": {
+        "options": [
+          "Larger than the Sun",
+          "Larger than the Milky Way",
+          "Larger than the planet Neptune"
+        ],
+        "answer": "Larger than the planet Neptune"
+      },"How many people like to play 'Minecraft' every month?": {
+        "options": [
+          "54 million",
+          "56 million",
+          "55 million"
+        ],
+        "answer": "55 million"
+      },
+      "When was 'Minecraft' released?": {
+        "options": [
+          "7 February 2009",
+          "Yesterday",
+          "18 November 2011"
+        ],
+        "answer": "18 November 2011"
+      },
+      "How do you enter Diversity Three 'Minecraft'?": {
+        "options": [
+          "You try to sneak in and hope they don't notice you're there",
+          "You bribe some of their members with diamonds and netherite",
+          "You have to complete the monument by collecting the colored wool"
+        ],
+        "answer": "You have to complete the monument by collecting the colored wool"
+      },
+      "Do leggings protect you from how much damage?": {
+        "options": [
+          "30 Percent",
+          "25 Percet",
+          "24 Percent"
+        ],
+        "answer": "24 Percent"
+      },
+      "What is one of the only blocks on which Redstone dust cannot be placed?": {
+        "options": [
+          "Double Stone Slabs",
+          "Smooth Stone",
+          "Glowstone"
+        ],
+        "answer": "Glowstone"
+      },
+      "Name the Rarest item in a typical survival world?": {
+        "options": [
+          "An emerald",
+          "A wither Star",
+          "A Dragon Egg"
+        ],
+        "answer": "A Dragon Egg"
+      },"A diamond chest plate provide with how many armor points?": {
+        "options": [
+          "Sixteen Points",
+          "Four Points",
+          "Eight Points"
+        ],
+        "answer": "Eight Points"
+      },"A compass is crafted from which ingredients?": {
+        "options": [
+          "4 gold and 1 redstone",
+          "2 iron and 2 gold",
+          "4 iron ingots and 1 redstone"
+        ],
+        "answer": "4 iron ingots and 1 redstone"
+      },
+      "Which ingredients are used to craft a clock?": {
+        "options": [
+          "4 gold and 1 redstone",
+          "2 iron and 2 gold",
+          "4 iron ingots and 1 redstone"
+        ],
+        "answer": "4 gold ingots and 1 redstone"
+      },
+      "With how many hits are blocks broken in creative mode?": {
+        "options": [
+          "Ten hits",
+          "Twenty hits",
+          "One hit"
+        ],
+        "answer": "One hit"
+      },"What does Rotten Flesh do?": {
+        "options": [
+          "It increases hunger for ocelots",
+          "It heals players",
+          "It heals wolves"
+        ],
+        "answer": "It heals wolves"
+      }, "What was Notch trying to program when it came out to be creeper?": {
+        "options": [
+          "Zombie",
+          "Skeleton",
+          "Pig"
+        ],
+        "answer": "Pig"
+      },"According to Minecraft 1.6 version how many mobs are there?": {
+        "options": [
+          "20",
+          "5",
+          "14"
+        ],
+        "answer": "14"
+      },"A baby villager takes how many minutes to grow up?": {
+        "options": [
+          "Two",
+          "Five",
+          "Twenty"
+        ],
+        "answer": "Twenty"
+      },"What condition does Tonic cure?": {
+        "options": [
+          "Blindness",
+          "Nausea",
+          "Levitation"
+        ],
+        "answer": "Nausea"
+      },
+      "Apples restore how many full Hunger Points?": {
+        "options": [
+          "2",
+          "4",
+          "6"
+        ],
+        "answer": "2"
+      }, "What item enhances a Potion's level?": {
+        "options": [
+          "Gunpowder",
+          "Redstone Dust",
+          "Glowstone Dust"
+        ],
+        "answer": "Glowstone Dust"
+      },"What is used to heal Iron Golems?": {
+        "options": [
+          "Iron Blocks",
+          "Iron Ingot",
+          "Roses"
+        ],
+        "answer": "Iron Ingot"
+      },    "Who is the founder of Sky City?": {
+        "options": [
+          "Vos",
+          "Xara",
+          "Isa"
+        ],
+        "answer": "Isa"
+      },    "What animals can make you swim faster?": {
+        "options": [
+          "Dolphins",
+          "Pufferfish",
+          "Guardians"
+        ],
+        "answer": "Dolphins"
+      },
+      "What animals bring you gifts when you sleep?": {
+        "options": [
+          "Pandas",
+          "Parrots",
+          "Cats"
+        ],
+        "answer": "Cats"
+      },
+      "How many Hearts does a Chicken have?": {
+        "options": [
+          "5",
+          "2",
+          "4"
+        ],
+        "answer": "2"
+      },
+      "How many colours of Axolotl are there?": {
+        "options": [
+          "5",
+          "7",
+          "10"
+        ],
+        "answer": "5"
+      },    "What is the name of Jesse's pet Pig?": {
+        "options": [
+          "Geoff",
+          "Lluna",
+          "Reuben"
+        ],
+        "answer": "Reuben"
+      },   "Endermen have how many Health Points?": {
+        "options": [
+          "10",
+          "20",
+          "40"
+        ],
+        "answer": "40"
+      },  "What is the real villain in Minecraft Dungeons (Story Mode)?": {
+        "options": [
+          "Ivor",
+          "Wither Storm",
+          "Orb of Dominance"
+        ],
+        "answer": "Orb of Dominance"
+      },"What do Hoglins become in the Overworld?": {
+        "options": [
+          "Boglins",
+          "Moglins",
+          "Zoglins"
+        ],
+        "answer": "Zoglins"
+      },"What was the Founder's First \"Working Name\" for Minecraft?": {
+        "options": [
+          "Markus",
+          "Cave Gam",
+          "Persson"
+        ],
+        "answer": "Cave Gamm"
+      },  "How far away can you be from a ghast for it to see you?": {
+        "options": [
+          "100 blocks",
+          "200 blocks",
+          "50 blocks"
+        ],
+        "answer": "100 blocks"
+      },"Around how many zombie spawns will be born as miniaturized \"baby\" zombies, who can ride chickens?": {
+        "options": [
+          "10%",
+          "50%",
+          "5%"
+        ],
+        "answer": "5%"
+      },"Who has founded Minecraft in 2009?": {
+        "options": [
+          "The independent musician named Jason Derulo",
+          "The independent video game designer Thomas R. Norwell",
+          "The independent video game designer Markus Persson"
+        ],
+        "answer": "By the independent video game designer Markus Persson"
+      }, "In which year was Mojang rebranded as Mojang Studios?": {
+        "options": [
+          "In May 2019",
+          "in May 2017",
+          "In May 2020"
+        ],
+        "answer": "In May 2020"
+      },"For how much was Mojang and Minecraft intellectual property purchased by Microsoft in 2014?": {
+        "options": [
+          "For $3.5 billion",
+          "For $1.0 billion",
+          "For $2.5 billion"
+        ],
+        "answer": "For $2.5 billion"
+      }, "What are the non-player characters called in the game which encounters players?": {
+        "options": [
+          "Hostile mobs such as skeletons and zombies to scare you at",
+          "Friendly animals, villagers and pets such as parrots and sheep",
+          "Both answers are correct"
+        ],
+        "answer": "'Mobs such as animals, villagers, and hostile creatures"
+      },
+      "You must complete the monument by collecting the colored wool to enter which Diversity 'Minecraft'?": {
+        "options": [
+          "Diversity Two",
+          "Diversity Four",
+          "Diversity Three"
+        ],
+        "answer": "Diversity Three"
+      }, "In which month was 'Minecraft' released?": {
+        "options": [
+          "7 of February",
+          "10 of September",
+          "18 of November"
+        ],
+        "answer": "18 of November"
+      }, "What vegetable can you use to make a night vision mixture?": {
+        "options": [
+          "A glistening melon",
+          "A carrot",
+          "A golden carrot"
+        ],
+        "answer": "A golden carrot"
+      },
+      "Playing 'Minecraft' in school is allowed in which country?": {
+        "options": [
+          "Sweden",
+          "United States",
+          "Norway"
+        ],
+        "answer": "Sweden"
+      }, "Which update was announced at MINECON 2019?": {
+        "options": [
+          "The Cave updates",
+          "The End updates",
+          "The Nether updates"
+        ],
+        "answer": "The Nether updates"
+      }, "In November 2019, how many copies of Minecraft had been sold?": {
+        "options": [
+          "100 million",
+          "150 million",
+          "180 million"
+        ],
+        "answer": "180 million"
+      },
+      "Which version of Minecraft was announced by Microsoft in May 2019?": {
+        "options": [
+          "Minecraft 1.14",
+          "Minecraft 1.16",
+          "Minecraft Earth"
+        ],
+        "answer": "Minecraft Earth"
+      }, "In which year Minecraft had a beta release and was rolled out fully in late 2019?": {
+        "options": [
+          "In January 2019",
+          "In September 2019",
+          "In July 2019"
+        ],
+        "answer": "In July 2019"
+      },  "In September 2019, which British daily newspaper classified Minecraft as the best video game of the 21st century?": {
+        "options": [
+          "The Telegraph",
+          "The Sun",
+          "The Guardian"
+        ],
+        "answer": "The Guardian"
+      }, "Which American magazine gave Minecraft a special mention in a list of the best video games of the 2010s, in December 2019?": {
+        "options": [
+          "The Guardian",
+          "NY Times",
+          "Forbes"
+        ],
+        "answer": "Forbes"
+      }, "What was the name of the educational organization which was formed with the goal of introducing Minecraft into schools?": {
+        "options": [
+          "Learn with Playing",
+          "Games Education",
+          "Minecraft Edu"
+        ],
+        "answer": "Minecraft Edu"
+      },"In September 2012, Mojang began which project in cooperation with UN-Habitat to create real-world environments in Minecraft?": {
+        "options": [
+          "The Overhaul project",
+          "The MC-Expansion project",
+          "The Block-by-Block project"
+        ],
+        "answer": "The Block-by-Block project"
+      },"Which Australian gaming program selected Minecraft as their choice for Best Downloadable Game of 2010?": {
+        "options": [
+          "Ubisoft",
+          "Epic Games",
+          "Good Game"
+        ],
+        "answer": "Good Game"
+      },  
+      "New players have a randomly selected default character skin of either Steve or Alex, in which year is the option to create custom skins?": {
+        "options": [
+          "2012",
+          "2011",
+          "2010"
+        ],
+        "answer": "2010"
+      }, "Who has produced Minecraft's music and sound effects?": {
+        "options": [
+          "By Sweden musician Thomas Rosenfeld(C418)",
+          "By English musician Lincoln Rosenfeld(C418)",
+          "By German musician Daniel Rosenfeld(C418)"
+        ],
+        "answer": "By German musician Daniel Rosenfeld(C418)"
+      }, "For which console did 4J Studios develop the Minecraft version released on 9 May 2012?": {
+        "options": [
+          "PS3",
+          "PS4",
+          "Xbox 360"
+        ],
+        "answer": "Xbox 360"
+      }, "In the Alpha version of the game which creatures were first introduced?": {
+        "options": [
+          "Creepers",
+          "Zombies",
+          "Skeletons"
+        ],
+        "answer": "Skeletons"
+      }, "What can you do when you get an Enchanted Music Disc in Cosmic Sky server?": {
+        "options": [
+          "Put it on a trohpy wall as it has no use",
+          "Use it as a high value item to trade with other players",
+          "Insert it in the jukebox to change the game's music"
+        ],
+        "answer": "Insert it in the jukebox to change the game's music"
+      },"When did the first trailer for the game was shown at Minecon revealing some of the game's features?": {
+        "options": [
+          "On 25 February 2009",
+          "On 30 June 2010",
+          "On 4 July 2015"
+        ],
+        "answer": "On 4 July 2015"
+      },   "When did the first major update, dubbed Alpha, was released?": {
+        "options": [
+          "On 11 June 2013",
+          "On 25 February 2009",
+          "On 30 June 2010"
+        ],
+        "answer": "On 30 June 2010"
+      }, "Which plant is the rarer Dandelions?": {
+        "options": [
+          "Allium",
+          "Dandelions",
+          "Roses"
+        ],
+        "answer": "Roses"
+      }, "What were the villagers used to called?": {
+        "options": [
+          "Villagers",
+          "Workers",
+          "Testificates"
+        ],
+        "answer": "Testificates"
+      },
+      "Which was the first enemy introduced to 'Minecraft'?": {
+        "options": [
+          "The Skeleton",
+          "The Creeper",
+          "The Zombie"
+        ],
+        "answer": "The Zombie"
+      },  "In which Minecraft stage were the Ghasts created?": {
+        "options": [
+          "Classic",
+          "Beta",
+          "Alpha"
+        ],
+        "answer": "Alpha"
+      },   "During the Pretty Scary Update which hostile mob was added?": {
+        "options": [
+          "Endermites",
+          "Vex",
+          "Witch"
+        ],
+        "answer": "Witch"
+      },"Which enemy was released with the adventure update?": {
+        "options": [
+          "Creeper",
+          "Silverfish",
+          "Enderman"
+        ],
+        "answer": "Enderman"
+      },   "Among Pumpkins and diamonds which is the rarest to find?": {
+        "options": [
+          "They are equally rare",
+          "Diamonds",
+          "Pumpkins"
+        ],
+        "answer": "Pumpkins"
+      },  "How many aggressive mobs are there in 1.6 versions?": {
+        "options": [
+          "4",
+          "3",
+          "2"
+        ],
+        "answer": "2"
+      },  
+      "What protects you from 12% of the damage?": {
+        "options": [
+          "Leggings",
+          "Boots",
+          "A helmet"
+        ],
+        "answer": "A helmet"
+      }, "How many seconds does coal or charcoal last as fuel in a furnace?": {
+        "options": [
+          "Fourty seconds",
+          "Sixty seconds",
+          "Eighty seconds"
+        ],
+        "answer": "Eighty seconds"
+      }
+
+}

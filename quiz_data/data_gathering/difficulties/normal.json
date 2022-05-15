@@ -1,0 +1,607 @@
+{
+    "How often do Chickens lay eggs in \"Mine craft\"?": {
+        "options": [
+          "Every 15 to 30 minutes",
+          "Every minute",
+          "Every 5 to 10 minutes"
+        ],
+        "answer": "Every 5 to 10 minutes"
+      },"In the game \"Minecraft\" which is the smallest animal?": {
+        "options": [
+          "Small Magma Cube",
+          "Slime",
+          "Chicken"
+        ],
+        "answer": "Chicken"
+      },"How many unique blocks are there in \"Minecraft\"?": {
+        "options": [
+          "500",
+          "300",
+          "150"
+        ],
+        "answer": "150"
+      },"Among roses, dandelions and allium which is the rarest to find in \"Minecraft\"?": {
+        "options": [
+          "Allium",
+          "Dandelions",
+          "Roses"
+        ],
+        "answer": "Roses"
+      },"What type of game is \"Minecraft\"?": {
+        "options": [
+          "FPS",
+          "RPG",
+          "Sandbox"
+        ],
+        "answer": "Sandbox"
+      },"Name the country were Notch the founder of \"Minecraft\" was originally born?": {
+        "options": [
+          "Norway",
+          "USA",
+          "Sweden"
+        ],
+        "answer": "Sweden"
+      },"\"Minecraft\" is written in which programming language?": {
+        "options": [
+          "C++",
+          "Python",
+          "Java"
+        ],
+        "answer": "Java"
+      },"The development on \"Minecraft\" begins in what year?": {
+        "options": [
+          "2015",
+          "2011",
+          "2009"
+        ],
+        "answer": "2009"
+      },
+      "Which mobs scares the Creeper in \"Minecraft\"?": {
+        "options": [
+          "Endermites",
+          "Chickens",
+          "Ocelot"
+        ],
+        "answer": "Ocelot"
+      },"If you stumble into a dungeon, how many chests can it contain?": {
+        "options": [
+          "Always 1",
+          "0-2",
+          "1-3"
+        ],
+        "answer": "0-2"
+      },"What's the key bind to clear your chat spam?": {
+        "options": [
+          "F4+A",
+          "F3+D",
+          "Shift+F3"
+        ],
+        "answer": "F3+D"
+      },"How many different colored wools are there?": {
+        "options": [
+          "22",
+          "14",
+          "16"
+        ],
+        "answer": "16"
+      },"When you touch a cactus, how much damage do you take?": {
+        "options": [
+          ".5 hearts",
+          "1 heart",
+          "3.5 hearts"
+        ],
+        "answer": ".5 hearts"
+      },"How is a zombie pigman get created?": {
+        "options": [
+          "A pig gets struck by lightning",
+          "A player kills too many pigs",
+          "Feed a pig rotten flesh"
+        ],
+        "answer": "A pig gets struck by lightning"
+      },"How long did it take to create the first version of minecraft?": {
+        "options": [
+          "6 Days",
+          "6 Months",
+          "13 Days"
+        ],
+        "answer": "6 Days"
+      },"Which of these items cannot be enchanted?": {
+        "options": [
+          "Wooden Shield",
+          "Diamond Helmet",
+          "Horse Armor"
+        ],
+        "answer": "Horse Armor"
+      },"Which of these mobs is exclusive to minecraft earth?": {
+        "options": [
+          "Tropical Slime",
+          "Cluckshroom",
+          "Manta Ray"
+        ],
+        "answer": "Cluckshroom"
+      },
+      "What are skeletons immune to?": {
+        "options": [
+          "Impailing",
+          "Arrows",
+          "Drowning"
+        ],
+        "answer": "Drowning"
+      },"Which is the only hostile mob in the game unable to deal you damage?": {
+        "options": [
+          "Small Slime",
+          "Baby Hoglin",
+          "Small Magma Cube"
+        ],
+        "answer": "Small Slime"
+      },"What are creepers scared of?": {
+        "options": [
+          "Cats",
+          "Villagers",
+          "Ocelots"
+        ],
+        "answer": "Ocelots"
+      },"Daniel Rosenfeld, the German composer responsible for much of Minecraft's music and sound, is better known by what name?": {
+        "options": [
+          "RC39P0",
+          "RJD2",
+          "C418"
+        ],
+        "answer": "C418"
+      },"How tall is a GHAST (not including tentacles)?": {
+        "options": [
+          "6 blocks",
+          "4 blocks",
+          "3 blocks"
+        ],
+        "answer": "4 blocks"
+      },
+      "How many hearts does the ender dragon have?": {
+        "options": [
+          "100",
+          "50",
+          "200"
+        ],
+        "answer": "100"
+      },
+      "Can combine two damaged fishing rods to create a new fishing rod?": {
+        "options": [
+          "Yes, in all versions of minecraft",
+          "No, that was never a game mechanic",
+          "Yes, only in previous versions"
+        ],
+        "answer": "Yes, in all versions of minecraft"
+      },
+      "How many hunger chops does raw mutton replenish?": {
+        "options": [
+          "1",
+          "2",
+          "3"
+        ],
+        "answer": "2"
+      },
+      "How many hunger chops does rabbit stew replenish?": {
+        "options": [
+          "8",
+          "10",
+          "6"
+        ],
+        "answer": "10"
+      },
+      "How many hunger chops does a steak replenish?": {
+        "options": [
+          "6",
+          "2",
+          "4"
+        ],
+        "answer": "4"
+      },"How many blocks do players usually travel to get to a Woodland Mansion?": {
+        "options": [
+          "20,000 blocks",
+          "20,001 blocks",
+          "500, as long as they have the map"
+        ],
+        "answer": "20,200 blocks"
+      },
+      "What is the piston push limit?": {
+        "options": [
+          "12",
+          "13",
+          "11"
+        ],
+        "answer": "12"
+      },"Which item cannot be used as fuel?": {
+        "options": [
+          "Boat",
+          "Chest",
+          "Sapling"
+        ],
+        "answer": "Boat"
+      }, "At what height (Y-coordinate) do diamonds appear most?": {
+        "options": [
+          "Y-12",
+          "Y-13",
+          "Y-11"
+        ],
+        "answer": "Y-12"
+      },
+      "What food item can you use to make the stairs?": {
+        "options": [
+          "Watermelon",
+          "Beatroot soup",
+          "Pumpkin"
+        ],
+        "answer": "Watermelon"
+      },"Can you make a Nether Portal in any size and shape?": {
+        "options": [
+          "As long as it's rectangular",
+          "Yes, even with a circle",
+          "No, it won't do a thing"
+        ],
+        "answer": "As long as it's rectangular"
+      },"Which of these jobs are not real in Minecraft?": {
+        "options": [
+          "Unemployed",
+          "Medic",
+          "Nitwit"
+        ],
+        "answer": "Medic"
+      },
+      "How can you get the raid event?": {
+        "options": [
+          "By killing an illager captain",
+          "By killing a villager",
+          "By stealing the wheat"
+        ],
+        "answer": "By killing an illager captain"
+      },
+      "Can a bed save you when falling from a high place?": {
+        "options": [
+          "Yes, if it is too high",
+          "No, the bed will break",
+          "No, you'll still take damage"
+        ],
+        "answer": "Yes, if it is too high"
+      },
+      "What's the best way for zombies to survive the daylight?": {
+        "options": [
+          "By swimming in water",
+          "No, they can't",
+          "Find some shades"
+        ],
+        "answer": "By swimming in water"
+      },"Which mob cannot eat wheat?": {
+        "options": [
+          "Sheep",
+          "Mooshrooms",
+          "Player"
+        ],
+        "answer": "Player"
+      },   "Which item can't be used to catch fish?": {
+        "options": [
+          "Bucket",
+          "Fishing Rod",
+          "Bamboo"
+        ],
+        "answer": "Bamboo"
+      },   "How is a Charged Creeper built?": {
+        "options": [
+          "You light it on fire and make it walk in the water",
+          "Right click it with a flint and steel",
+          "When lightning strikes within four blocks of a Creeper"
+        ],
+        "answer": "When lightning strikes within four blocks of a Creeper"
+      },
+      "What can you wear to avoid Enderman ambushing you?": {
+        "options": [
+          "Ender Dragon Head",
+          "An enderman head",
+          "A pumpkin"
+        ],
+        "answer": "A pumpkin"
+      },
+      "What are creepers petrified of?": {
+        "options": [
+          "Rocks",
+          "Cobblestone",
+          "Ocelots"
+        ],
+        "answer": "Ocelots"
+      },"How many slabs of iron ore are used to make one iron ingot?": {
+        "options": [
+          "Two",
+          "Five",
+          "One"
+        ],
+        "answer": "One"
+      },
+      "How many versions of 'Minecraft' are there?": {
+        "options": [
+          "More than seventeen",
+          "One",
+          "Two"
+        ],
+        "answer": "Two"
+      },
+      "What are the two things that you cannot see through glass that is being broken?": {
+        "options": [
+          "Mobs",
+          "The sun",
+          "Rain and snow"
+        ],
+        "answer": "Rain and snow"
+      },"In which shape should soul sand be arranged and what should you put on it?": {
+        "options": [
+          "+ shape and place 3 skulls on top of it",
+          "L shape and place your head on it",
+          "\"T\" shape and skull is placed on it"
+        ],
+        "answer": "\"T\" shape and 3 skulls are placed on it"
+      },"To completely fill a cauldron how many water bottles are needed?": {
+        "options": [
+          "One",
+          "Two",
+          "Three"
+        ],
+        "answer": "Three"
+      },
+      "How much time does TNT take to explode?": {
+        "options": [
+          "3 seconds",
+          "5 seconds",
+          "4 seconds"
+        ],
+        "answer": "4 seconds"
+      },"What is produced when flowing water hits a lava source block?": {
+        "options": [
+          "Stone",
+          "Cobblestone",
+          "Obsidian"
+        ],
+        "answer": "Cobblstone"
+      },
+      
+      "Which ingredients do you need to craft a cauldron?": {
+        "options": [
+          "9 iron ingots",
+          "5 iron ingots",
+          "7 iron ingots"
+        ],
+        "answer": "7 iron ingots"
+      },
+      "To craft a brewing stand what ingredients are used?": {
+        "options": [
+          "2 cobblestone, 2 blaze rod",
+          "3 cobblestone, 2 blaze rods",
+          "3 cobblestone, 1 blaze rod "
+        ],
+        "answer": "3 cobblestone, 1 blaze rod "
+      },
+      "How is wolf's health determined?": {
+        "options": [
+          "By the color of their neck",
+          "By it's fur color",
+          "By its tail position"
+        ],
+        "answer": "By its tail position"
+      },"What do Zombies attack without being provoked?": {
+        "options": [
+          "Player's farmland",
+          "Bats",
+          "Villager"
+        ],
+        "answer": "Villager"
+      },
+      
+      "What usually grows on a sand block next to water?": {
+        "options": [
+          "Moss",
+          "Flowers",
+          "Sugar Cane"
+        ],
+        "answer": "Sugar Cane"
+      },
+      "What is bone meal used for in Minecraft?": {
+        "options": [
+          "To multiply the crops u get per harvest",
+          "To make bread as a substitute to flower",
+          "To grow things faster"
+        ],
+        "answer": "To grow things faster"
+      },"How many wooden planks do you need to craft 4 sticks?": {
+        "options": [
+          "One",
+          "Four",
+          "Two"
+        ],
+        "answer": "Two"
+      },
+      "What are controlled with a Carrot on a Stick?": {
+        "options": [
+          "Pandas",
+          "Pigs",
+          "Cats"
+        ],
+        "answer": "Pigs"
+      }, "Llamas eat Hay Bales and what else?": {
+        "options": [
+          "Wheat",
+          "Carrots",
+          "Pumpkins"
+        ],
+        "answer": "Wheat"
+      },"There are 15 unique Music Discs - True or False?": {
+        "options": [
+          "True",
+          "False"
+        ],
+        "answer": "False"
+      }, "The Ender Dragon is Female - True or False?": {
+        "options": [
+          "True",
+          "False"
+        ],
+        "answer": "True"
+      },    "Striders can walk on lava - True or False?": {
+        "options": [
+          "True",
+          "False"
+        ],
+        "answer": "True"
+      },
+      "Cats cannot take fall damage - True or False?": {
+        "options": [
+          "True",
+          "False"
+        ],
+        "answer": "True"
+      },"The Thorns enchantment can be applied to Helmets - True or False?": {
+        "options": [
+          "False",
+          "True"
+        ],
+        "answer": "False"
+      },"Who drops Totems of Undying?": {
+        "options": [
+          "Pillagers",
+          "Shulkers",
+          "Evokers"
+        ],
+        "answer": "Evokers"
+      },"What zombie type is only found in Deserts?": {
+        "options": [
+          "Normal Zombie",
+          "Zombies don't spawn in deserts",
+          "Husk"
+        ],
+        "answer": "Husk"
+      },   "What armour stops Piglins attacking you?": {
+        "options": [
+          "Netherite",
+          "Diamond",
+          "Golden"
+        ],
+        "answer": "Golden"
+      },"As a fun bonus, if you can get a Skeleton to accidentally shoot a Creeper, it will drop a_______.": {
+        "options": [
+          "Iron Ingot",
+          "Gold Ingot",
+          "Music Disc"
+        ],
+        "answer": "Music disc"
+      },"What must players gather in the environment to craft certain blocks and items to survive?": {
+        "options": [
+          "Duplicated resources such as cobblestone to build pillars around the world",
+          "Natural resources such as water and sand to make a water pool",
+          "Natural resources such as wood and stone are found in the environment"
+        ],
+        "answer": "Natural resources such as wood and stone are found in the environment"
+      },  "The tool 'Pickaxe' is used by the player for what purpose?": {
+        "options": [
+          "To mine crops from soil",
+          "To mine trees and leaves",
+          "To mine stone and ores"
+        ],
+        "answer": "To mine stone and ores"
+      }, "Which version of Minecraft is an augmented reality game?": {
+        "options": [
+          "Minecraft Realm",
+          "Minecraft VR",
+          "Minecraft Earth"
+        ],
+        "answer": "Minecraft Earth"
+      },"What currency does Minecraft Earth use?": {
+        "options": [
+          "Diamonds",
+          "Coins",
+          "Rubies"
+        ],
+        "answer": "Rubies"
+      },  "Which Social media sites played a significant role in popularizing Minecraft?": {
+        "options": [
+          "None",
+          "Discord, Instagram",
+          "YouTube, Facebook, and Reddit"
+        ],
+        "answer": "YouTube, Facebook, and Reddit"
+      },"Some hostile mobs, such as zombies, skeletons, and drowned burn under the sun if they don't have what?": {
+        "options": [
+          "Chest gear",
+          "Footwear",
+          "Head gear"
+        ],
+        "answer": "Head gear"
+      }, "What is the background music in Minecraft?": {
+        "options": [
+          "Orchestral music",
+          "Inspirational homework music",
+          "It is instrumental ambient music"
+        ],
+        "answer": "It is instrumental ambient music"
+      }, "What do you need to tame an Ocelot?": {
+        "options": [
+          "Pufferfish",
+          "Cooked Fish",
+          "Raw fish"
+        ],
+        "answer": "Raw fish"
+      }, 
+      "Which mob only breeds underground?": {
+        "options": [
+          "Fish",
+          "Chicken",
+          "Slime"
+        ],
+        "answer": "Slime"
+      },   "Iron Golem mob has more health than which mob?": {
+        "options": [
+          "A Buffalo",
+          "A Dragon",
+          "An Enderman"
+        ],
+        "answer": "An Enderman"
+      },   "What do the Creepers drop when they are killed by the skeleton?": {
+        "options": [
+          "Redstone",
+          "Powered Rails",
+          "Music discs"
+        ],
+        "answer": "Music discs"
+      }, "Which mob can swim against a current in Minecraft?": {
+        "options": [
+          "Horse",
+          "Chicken",
+          "Squid"
+        ],
+        "answer": "Squid"
+      },  "What quantity of paper is required to craft a book?": {
+        "options": [
+          "Six",
+          "Four",
+          "Three"
+        ],
+        "answer": "Three"
+      }, "Who is known by it's demented growling sounds?": {
+        "options": [
+          "Creeper",
+          "Bat",
+          "Zombie"
+        ],
+        "answer": "Zombie"
+      },"What type of sound does a Spider mob produces?": {
+        "options": [
+          "Sounds of boiling kettle",
+          "Musical sounds",
+          "Hissing sounds"
+        ],
+        "answer": "Hissing sounds"
+      },   "Which is the second largest mob in 'Minecraft'?": {
+        "options": [
+          "Panda",
+          "Enderman",
+          "Ghast"
+        ],
+        "answer": "Ghast"
+      }          
+               
+}
