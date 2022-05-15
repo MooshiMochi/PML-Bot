@@ -70,8 +70,8 @@ class Riddles(commands.Cog):
 
         if not self.riddles['active']: return
 
-        if len(self.last_user_ids) < 4:
-            return
+        # if len(self.last_user_ids) < 4:
+        #     return
 
         cat_opts = [key for key in self.riddles["type"] if key not in self.used_categories]
 
