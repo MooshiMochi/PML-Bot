@@ -6,6 +6,7 @@ pip install discord-py-slash-command==3.0.1a
 Timnoot / Custom Bot Commission Discord-Minecraft
 """
 
+import mimetypes
 import os
 import json
 import asyncio
@@ -90,9 +91,12 @@ class MyClient(commands.Bot):
         async with client.session.patch(f"https://unbelievaboat.com/api/v1/guilds/{guild_id}/users/{userid}",
                                         headers=headers,
                                         json={"bank": amount, "reason": "Guessed the riddle correct."}) as f:
-            data = await f.json()
-            return data
-
+            try:
+                data = await f.json(mimetypes=["application/json"])
+                return data
+            except Exception as e:
+                print("New exception in addcoins:\n", e)
+                return None
 
 client = MyClient(command_prefix=commands.when_mentioned_or(prefix), case_insensitive=True,
                   allowed_mentions=discord.AllowedMentions(everyone=False), intents=discord.Intents.all(),

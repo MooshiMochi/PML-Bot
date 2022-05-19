@@ -230,13 +230,13 @@ class Riddles(commands.Cog):
         
         await ctx.defer(hidden=True)
 
-        self.riddles[type][str(len(self.riddles[type])+1)] = {
+        self.riddles['type'][type][str(len(self.riddles['type'][type])+1)] = {
             "question": question,
             "answer": answer
         }
 
         em = discord.Embed(color=0x72F8EF, title="New riddle added", 
-        description=f"**Type: __{type.capitalize()}__**\n\n`#{len(self.riddles[type])}. {question}`\n> {answer}")
+        description=f"**Type: __{type.capitalize()}__**\n\n`#{len(self.riddles['type'][type])}. {question}`\n> {answer}")
         em.set_footer(text="Pixel | Riddles", icon_url=self.client.user.avatar_url_as(static_format="png", size=2048))
         
 
@@ -261,20 +261,20 @@ class Riddles(commands.Cog):
         
         await ctx.defer(hidden=True)
 
-        if not str(riddle_number) in self.riddles[type].keys():
+        if not str(riddle_number) in self.riddles['type'][type].keys():
             return await ctx.send(f"That riddle doesn't exist in the {type.capitalize()} category.", hidden=True)
 
-        question = self.riddles[type][str(riddle_number)]["question"]
-        answer = self.riddles[type][str(riddle_number)]["answer"]
+        question = self.riddles['type'][type][str(riddle_number)]["question"]
+        answer = self.riddles['type'][type][str(riddle_number)]["answer"]
         
-        if not self.riddles[type].pop(str(riddle_number), False):
+        if not self.riddles['type'][type].pop(str(riddle_number), False):
             return await ctx.send(f"That riddle doesn't exist in the {type.capitalize()} category.", hidden=True)
 
-        copied_dict = self.riddles[type].copy()
-        self.riddles[type] = {}
+        copied_dict = self.riddles['type'][type].copy()
+        self.riddles['type'][type] = {}
 
         for index, qna in enumerate(copied_dict.values()):
-            self.riddles[type][str(index+1)] = qna
+            self.riddles['type'][type][str(index+1)] = qna
 
         em = discord.Embed(color=0x72F8EF, title="Riddle deleted", 
         description=f"**Type: __{type.capitalize()}__**\n\n`#{riddle_number}. {question}`\n> {answer}")
@@ -295,24 +295,24 @@ class Riddles(commands.Cog):
         ]) | {"focused": True}])
     @commands.has_permissions(administrator=True)
     @commands.guild_only()
-    async def riddles_questions(self, ctx:SlashContext, type:str=None):
+    async def riddles_questions(self, ctx:SlashContext, type:str):
         await ctx.defer(hidden=True)
         
-        ranked = list(self.riddles[type].keys())
+        ranked = list(self.riddles['type'][type].keys())
 
         embeds = []
 
-        add_on = [y for y in range(9, len(self.riddles[type]), 10)] if len(self.riddles[type]) >= 10 else [len(self.riddles[type])-1]
+        add_on = [y for y in range(9, len(self.riddles['type'][type]), 10)] if len(self.riddles['type'][type]) >= 10 else [len(self.riddles['type'][type])-1]
 
         if len(add_on) > 1 and add_on[-1] % 10 != 0:
-            add_on.append(len(self.riddles[type])-1)
+            add_on.append(len(self.riddles['type'][type])-1)
         
         em = discord.Embed(color=0x72F8EF, title=f"Riddles Q & A's ({type.capitalize()})", description="")
         
-        for x in range(len(self.riddles[type])):
+        for x in range(len(self.riddles['type'][type])):
             
-            question = self.riddles[type][ranked[x]]["question"]
-            answer = self.riddles[type][ranked[x]]["answer"]
+            question = self.riddles['type'][type][ranked[x]]["question"]
+            answer = self.riddles['type'][type][ranked[x]]["answer"]
             
             em.description += f"`#{ranked[x]}. {question}`\n"
             em.description += f"> {answer}\n\n"
