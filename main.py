@@ -92,7 +92,7 @@ class MyClient(commands.Bot):
                                         headers=headers,
                                         json={"bank": amount, "reason": "Guessed the riddle correct."}) as f:
             try:
-                data = await f.json(mimetypes=["application/json"])
+                data = await f.json(content_type="application/json")
                 return data
             except Exception as e:
                 print("New exception in addcoins:\n", e)
