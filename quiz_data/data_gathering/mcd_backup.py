@@ -76,19 +76,19 @@ class McMadness(commands.Cog):
         if "mm_tournament_payout_ts" in self.client.po_data.keys() and self.client.po_data["mm_tournament_payout_ts"]:
             scheduled_pay_time = self.client.po_data["mm_tournament_payout_ts"]
 
-        if datetime.utcnow().timestamp() >= scheduled_pay_time:
+        if datetime.now().timestamp() >= scheduled_pay_time:
             print("Time to pay bby gurl")
-            _date = str(datetime.utcnow().date())
+            _date = str(datetime.now().date())
             next_schedule = ""    
             if int(_date[5:7]) > 12:
-                next_schedule = datetime.strptime(str(int(str(datetime.utcnow().date())[:4])+1) + "-01-01 00:01:00", "%Y-%m-%d %H:%M:%S").timestamp()
+                next_schedule = datetime.strptime(str(int(str(datetime.now().date())[:4])+1) + "-01-01 00:01:00", "%Y-%m-%d %H:%M:%S").timestamp()
             else:
-                if int(str(datetime.utcnow().date())[5:7])+1 < 10:
+                if int(str(datetime.now().date())[5:7])+1 < 10:
                     filler = "0"
                 else:
                     filler = ""
         
-                next_schedule = datetime.strptime(str(datetime.utcnow().date())[:5] + filler + str(int(str(datetime.utcnow().date())[5:7])+1) + "-01 00:01:00", "%Y-%m-%d %H:%M:%S").timestamp()
+                next_schedule = datetime.strptime(str(datetime.now().date())[:5] + filler + str(int(str(datetime.now().date())[5:7])+1) + "-01 00:01:00", "%Y-%m-%d %H:%M:%S").timestamp()
             
             # payout code here
             data = sorted([[key, self.client.po_data["mm_tournament"][key]] for key in self.client.po_data["mm_tournament"].keys()], key=lambda e: e[1], reverse=True)[:10]
@@ -156,7 +156,7 @@ class McMadness(commands.Cog):
 
     async def join_event(self, channel):
         
-        start_time = datetime.utcnow().timestamp() + 60
+        start_time = datetime.now().timestamp() + 60
 
         em = discord.Embed(color=0x00F8EF, title="Minecraft Madness Event!", 
         description=f"*The event will begin <t:{int(start_time)}:R>*\n")
@@ -176,8 +176,8 @@ class McMadness(commands.Cog):
         self.game_cache["embed"] = msg.embeds[0]
 
         while 1:
-            if start_time - (datetime.utcnow().timestamp()) >= 0:
-                await asyncio.sleep(start_time - (datetime.utcnow().timestamp()))
+            if start_time - (datetime.now().timestamp()) >= 0:
+                await asyncio.sleep(start_time - (datetime.now().timestamp()))
                 break
 
         no_more_joins = [manage_components.create_button(
@@ -245,19 +245,19 @@ class McMadness(commands.Cog):
 
             msg = await self.event_channel.send(embed=main_em, components=ar)
             
-            self.question_start_ts = datetime.utcnow().timestamp()
+            self.question_start_ts = datetime.now().timestamp()
             
-            stop_ts = datetime.utcnow().timestamp() + sleep_time[0] + sleep_time[1]
+            stop_ts = datetime.now().timestamp() + sleep_time[0] + sleep_time[1]
             sent_notif = False
 
             reminder = discord.Embed(color=0x00F8EF).set_author(name=f"{sleep_time[1]} SECONDS LEFT TO GUESS", icon_url=self.client.user.avatar_url_as(static_format="png", size=2048))
 
-            while datetime.utcnow().timestamp() < stop_ts:
+            while datetime.now().timestamp() < stop_ts:
 
                 if len(self.participants.keys()) == len(self.users_guessed):
                     break
 
-                elif stop_ts - datetime.utcnow().timestamp() <= sleep_time[1]:
+                elif stop_ts - datetime.now().timestamp() <= sleep_time[1]:
                     if not sent_notif:
                         await self.event_channel.send(embed=reminder, delete_after=sleep_time[1])
                         sent_notif = True
@@ -544,7 +544,7 @@ class McMadness(commands.Cog):
             return await ctx.reply(embed=em, hidden=True)
 
 
-        if datetime.utcnow().timestamp() - self.question_start_ts <= 5:
+        if datetime.now().timestamp() - self.question_start_ts <= 5:
             if not self.users_guessed:
                 self.participants[ctx.author_id] += 30
             elif len(self.users_guessed) == 1:
@@ -554,7 +554,7 @@ class McMadness(commands.Cog):
             else:
                 self.participants[ctx.author_id] += 10
 
-        elif datetime.utcnow().timestamp() - self.question_start_ts <= 15:
+        elif datetime.now().timestamp() - self.question_start_ts <= 15:
             if not self.users_guessed:
                 self.participants[ctx.author.id] += 20
             elif len(self.users_guessed) == 1:
@@ -576,7 +576,7 @@ class McMadness(commands.Cog):
             else:
                 self.participants[ctx.author_id] += 5
         
-        elif datetime.utcnow().timestamp() - self.question_start_ts <= 30:
+        elif datetime.now().timestamp() - self.question_start_ts <= 30:
             if not self.users_guessed:
                 self.participants[ctx.author.id] += 10
             elif len(self.users_guessed) == 1:
@@ -992,7 +992,7 @@ class McMadness(commands.Cog):
                 else:
                     raise commands.MemberNotFound
             except (commands.MemberNotFound, TypeError):
-                print(datetime.utcnow(), "Self Handled!")
+                print(datetime.now(), "Self Handled!")
                 return await ctx.send(f"I couldn't find '{tournaments_or_casual}' in this server.")
 
         await ctx.defer(hidden=False)
@@ -1021,7 +1021,7 @@ class McMadness(commands.Cog):
                 else:
                     raise commands.MemberNotFound
             except (commands.MemberNotFound, TypeError):
-                print(datetime.utcnow(), "Self Handled!")
+                print(datetime.now(), "Self Handled!")
                 return await ctx.send(f"I couldn't find '{tournaments_or_casual}' in this server.")
         
         if "t" in tournaments_or_casual.lower():

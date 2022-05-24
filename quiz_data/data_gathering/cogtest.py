@@ -66,7 +66,7 @@ class McMadness(commands.Cog):
 
     async def join_event(self, channel):
         
-        start_time = datetime.utcnow().timestamp() + 60
+        start_time = datetime.now().timestamp() + 60
 
         em = discord.Embed(color=0x00F8EF, title="Minecraft Madness Event!", 
         description=f"*The event will begin <t:{int(start_time)}:R>*\n")
@@ -86,8 +86,8 @@ class McMadness(commands.Cog):
         self.game_cache["embed"] = msg.embeds[0]
 
         while 1:
-            if start_time - (datetime.utcnow().timestamp()) >= 0:
-                await asyncio.sleep(start_time - (datetime.utcnow().timestamp()))
+            if start_time - (datetime.now().timestamp()) >= 0:
+                await asyncio.sleep(start_time - (datetime.now().timestamp()))
                 break
 
         no_more_joins = [manage_components.create_button(
@@ -150,7 +150,7 @@ class McMadness(commands.Cog):
             main_em, ar = await self.prepare_question()
 
             msg = await self.event_channel.send(embed=main_em, components=ar)
-            self.question_start_ts = datetime.utcnow().timestamp()
+            self.question_start_ts = datetime.now().timestamp()
 
             await asyncio.sleep(20)
 
@@ -384,7 +384,7 @@ class McMadness(commands.Cog):
             icon_url=self.client.user.avatar_url_as(static_format="png", size=2048))
             return await ctx.send(embed=em, hidden=True)
 
-        if datetime.utcnow().timestamp() - self.question_start_ts <= 5:
+        if datetime.now().timestamp() - self.question_start_ts <= 5:
             if not self.users_guessed:
                 self.participants[ctx.author_id] += 30
             elif len(self.users_guessed) == 1:
@@ -394,7 +394,7 @@ class McMadness(commands.Cog):
             else:
                 self.participants[ctx.author_id] += 10
 
-        elif datetime.utcnow().timestamp() - self.question_start_ts <= 15:
+        elif datetime.now().timestamp() - self.question_start_ts <= 15:
             if not self.users_guessed:
                 self.participants[ctx.author.id] += 20
             elif len(self.users_guessed) == 1:
@@ -416,7 +416,7 @@ class McMadness(commands.Cog):
             else:
                 self.participants[ctx.author_id] += 5
         
-        elif datetime.utcnow().timestamp() - self.question_start_ts <= 30:
+        elif datetime.now().timestamp() - self.question_start_ts <= 30:
             if not self.users_guessed:
                 self.participants[ctx.author.id] += 10
             elif len(self.users_guessed) == 1:

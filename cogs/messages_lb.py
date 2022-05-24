@@ -88,7 +88,7 @@ class MessageLB(commands.Cog):
 
         if self.pinged:
             addon = 2
-            if datetime.utcnow().timestamp() - self.ping_ts >= 15*60:
+            if datetime.now().timestamp() - self.ping_ts >= 15*60:
                 self.pinged = False
         else:
             addon = 1
@@ -121,11 +121,11 @@ class MessageLB(commands.Cog):
         else:
             self.msg_data["last_payout"] = 1643605260
 
-        # curr = datetime.utcnow().timestamp() + 5*60*60
+        # curr = datetime.now().timestamp() + 5*60*60
         # if (first < curr) and (first+7*24*60*60 <= curr):
         #     pass
 
-        if datetime.utcnow().timestamp() >= self.msg_data["last_payout"] + 7*24*60*60:
+        if datetime.now().timestamp() >= self.msg_data["last_payout"] + 7*24*60*60:
 
             data = sorted([[data[0], data[1]] for data in self.msg_data.items() if data[0] != "last_payout"], key=lambda e: e[1]["count"], reverse=True)[:10]
 
@@ -153,20 +153,20 @@ class MessageLB(commands.Cog):
                     except IndexError:
                         continue
                     
-                    print(f"Added {payouts[0]} coins to {data[_][1]['name']} | {data[_][1]['count']}")
+                    print(f"Added {payouts[0]} coins to {data[_][1]['name']} | {data[_][1]['count']}".encode("utf-8"))
                     payouts.pop(0)
 
             self.client.po_data["count"] += 1
-            self.msg_data = {"last_payout": datetime.utcnow().timestamp() + 5*60*60}
+            self.msg_data = {"last_payout": datetime.now().timestamp() + 5*60*60}
 
 
     @tasks.loop(hours=1)
     async def ping(self):
         await self.client.wait_until_ready()
 
-        # if ((datetime.fromtimestamp(datetime.utcnow().timestamp() - 5*60*60).time() >= time(20, 0))) and ((datetime.utcnow().timestamp() - 29*60*60) - datetime.strptime(str(time(20, 0)),"%H:%M:%S") >= 24*60*60):
+        # if ((datetime.fromtimestamp(datetime.now().timestamp() - 5*60*60).time() >= time(20, 0))) and ((datetime.now().timestamp() - 29*60*60) - datetime.strptime(str(time(20, 0)),"%H:%M:%S") >= 24*60*60):
 
-        if (datetime.utcnow().time() >= time(20, 0)) and (datetime.utcnow().time() < time(21, 0)):
+        if (datetime.now().time() >= time(20, 0)) and (datetime.now().time() < time(21, 0)):
 
             more_sleep = random.randint(1, 28800)
 
@@ -177,7 +177,7 @@ class MessageLB(commands.Cog):
             channel = self.client.guilds[0].get_channel(866526262759129118)
             await channel.send(msg)
             
-            self.ping_ts = datetime.utcnow().timestamp()
+            self.ping_ts = datetime.now().timestamp()
             self.pinged = True
 
     @tasks.loop(hours=24)
@@ -390,7 +390,7 @@ class MessageLB(commands.Cog):
             pass  # Ignore "Command not found" errors to prevent console log spam
 
         elif isinstance(error, commands.MemberNotFound):
-            print(datetime.utcnow())
+            print(datetime.now())
 
             try:
                 print(ctx.message.content, "\n")
@@ -398,7 +398,7 @@ class MessageLB(commands.Cog):
                 print("Tried to print ctx.content. Failed. Exception:", e, "\n", "Error", error)
 
         elif isinstance(error, commands.UserNotFound):
-            print(datetime.utcnow())
+            print(datetime.now())
 
             try:
                 print(ctx.message.content, "\n")
@@ -406,7 +406,7 @@ class MessageLB(commands.Cog):
                 print("Tried to print ctx.content. Failed. Exception:", e, "\n", "Error", error)
 
         else:
-            print(datetime.utcnow())
+            print(datetime.now())
 
             try:
                 print(ctx.message.content, "\n")

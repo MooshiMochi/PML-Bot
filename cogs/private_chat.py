@@ -57,9 +57,9 @@ class PrivateChat(commands.Cog):
         channel = await guild.create_text_channel(name=f'{ctx.author.name}-pchat', overwrites=overwrites, category=category)
 
         self.pv[str(channel.id)] = {
-            # "ts": datetime.utcnow().timestamp(), 
+            # "ts": datetime.now().timestamp(), 
             "author": str(ctx.author.id), 
-            "created_at": datetime.utcnow().timestamp()}
+            "created_at": datetime.now().timestamp()}
 
         await channel.send(embed=discord.Embed(description=f"Welcome to your very own Private Chat!\n\
 \n\
@@ -261,7 +261,7 @@ icon_url=ctx.author.avatar_url_as(static_format="png", size=2048)))
                 if int(ch_id) not in [x.id for x in self.category_ch.channels]:
                     await self.delete(ch_id)
                 
-                elif datetime.utcnow().timestamp() - self.pv[ch_id]["created_at"] >= 48*60*60:
+                elif datetime.now().timestamp() - self.pv[ch_id]["created_at"] >= 48*60*60:
                     channel = self.client.guilds[0].get_channel(int(ch_id))
                     await self.delete(ch_id)
                     await channel.delete()
