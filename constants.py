@@ -7,4 +7,6 @@ class Constants:
             "cogs.riddles"
         )
 
+        self.DEBUG = False
+
 const = Constants()

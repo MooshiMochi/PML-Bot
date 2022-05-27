@@ -1,4 +1,5 @@
 
+from distutils.log import debug
 import json
 import discord
 import asyncio
@@ -14,6 +15,7 @@ from discord_slash.cog_ext import cog_slash
 from discord_slash.utils.manage_commands import create_option, create_choice
 
 from paginator import Paginator
+from constants import const
 
 class Riddles(commands.Cog):
     def __init__(self, client):
@@ -105,7 +107,7 @@ class Riddles(commands.Cog):
 
         self.random_win = randint(500, 2500)
 
-        em = discord.Embed(color=0x72F8EF, title="New chat riddle", description=msg+f"\n\n*Answer the riddle correctly for {self.random_win} <:real:931186583586107472>!*")
+        em = discord.Embed(color=0x72F8EF, title="New chat riddle", description=msg+f"\n\n*Answer the riddle correctly for {self.random_win} <:money:903467440829259796>!*")
         em.set_footer(text="Pixel | Riddles", icon_url=self.client.user.avatar_url_as(static_format="png", size=2048))
 
         self.is_riddle_guessed = False
@@ -149,12 +151,17 @@ class Riddles(commands.Cog):
                 await self.client.addcoins(msg.author.id, self.random_win)
 
                 em = discord.Embed(
-                    description=f"Congratulations {msg.author.mention}!         You guessed the riddle! You got `{self.random_win}` <:real:931186583586107472>",
+                    description=f"Congratulations {msg.author.mention}!         You guessed the riddle! You got `{self.random_win}` <:money:903467440829259796>",
                     color=0x72F8EF)
                 em.set_footer(text="Pixel | Riddles",
                               icon_url=str(self.client.user.avatar_url_as(static_format="png", size=2048)))
 
                 await msg.channel.send(embed=em)
+                try:
+                    await self.main_ch.send(content=f"In <#{msg.channel.id}>", embed=em)
+                except (discord.HTTPException, discord.Forbidden, discord.NotFound, AttributeError) as e:
+                    if const.DEBUG:
+                        print(e)
 
 
     @cog_slash(name="riddles_config", description="[ADMIN] Configure riddles", guild_ids=[865870663038271489], options=[
