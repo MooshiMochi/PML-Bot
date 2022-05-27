@@ -157,11 +157,12 @@ class Riddles(commands.Cog):
                               icon_url=str(self.client.user.avatar_url_as(static_format="png", size=2048)))
 
                 await msg.channel.send(embed=em)
-                try:
-                    await self.main_ch.send(content=f"In <#{msg.channel.id}>", embed=em)
-                except (discord.HTTPException, discord.Forbidden, discord.NotFound, AttributeError) as e:
-                    if const.DEBUG:
-                        print(e)
+                if self.main_ch and self.main_ch.id != msg.channel.id:
+                    try:
+                        await self.main_ch.send(content=f"In <#{msg.channel.id}>", embed=em)
+                    except (discord.HTTPException, discord.Forbidden, discord.NotFound, AttributeError) as e:
+                        if const.DEBUG:
+                            print(e)
 
 
     @cog_slash(name="riddles_config", description="[ADMIN] Configure riddles", guild_ids=[865870663038271489], options=[
