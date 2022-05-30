@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands, tasks
 import json
-from datetime import datetime, time
+from datetime import datetime, time, timedelta
 import asyncio
 import random
 from discord_slash import SlashContext
@@ -118,16 +118,16 @@ class MessageLB(commands.Cog):
         if "last_payout" in self.msg_data.keys():
 
             if not self.msg_data["last_payout"]:
-                self.msg_data["last_payout"] = 1643605260
+                self.msg_data["last_payout"] = 1590811260
         else:
-            self.msg_data["last_payout"] = 1643605260
+            self.msg_data["last_payout"] = 1590811260
 
         # curr = datetime.now().timestamp() + 5*60*60
         # if (first < curr) and (first+7*24*60*60 <= curr):
         #     pass
 
-        if datetime.now().timestamp() >= self.msg_data["last_payout"] + 7*24*60*60:
-
+        # if datetime.now().timestamp() >= self.msg_data["last_payout"] + 7*24*60*60:
+        if datetime.now() > datetime.fromtimestamp(self.msg_data["last_payout"]) + timedelta(weeks=1):
             data = sorted([[data[0], data[1]] for data in self.msg_data.items(
             ) if data[0] != "last_payout"], key=lambda e: e[1]["count"], reverse=True)[:10]
 
@@ -157,8 +157,12 @@ class MessageLB(commands.Cog):
                     except IndexError:
                         continue
 
-                    print(
-                        f"Added {payouts[0]} coins to {data[_][1]['name'].encode('utf-8')} | {data[_][1]['count']}".encode("utf-8"))
+                    try:
+                        print(
+                            f"Added {payouts[0]} coins to {data[_][1]['name'].encode('utf-8')} | {data[_][1]['count']}".encode("utf-8"))
+                    except Exception as e:
+                        print(e)
+
                     payouts.pop(0)
 
             self.client.po_data["count"] += 1
