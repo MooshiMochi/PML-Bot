@@ -4,9 +4,11 @@ class Constants:
             "cogs.mc_madness",
             "cogs.messages_lb",
             "cogs.private_chat",
-            "cogs.riddles"
+            "cogs.riddles",
+            "events.error_handler"
         )
 
         self.DEBUG = False
+
 
 const = Constants()

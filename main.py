@@ -32,6 +32,9 @@ apikey = os.getenv("HYPIXEL_API_KEY")
 unbelievaboattoken = os.getenv("UNBELIEVABOAT_TOKEN")
 guild_id = 865870663038271489
 
+if not "logs" in os.listdir():
+    os.system("mkdir logs")
+
 
 class MyClient(commands.Bot):
     # noinspection PyUnresolvedReferences
@@ -75,7 +78,7 @@ class MyClient(commands.Bot):
                 return f.status
 
     async def addcoins(self, userid, amount):
-        
+
         if amount < 0:
             async with client.session.get(f"https://unbelievaboat.com/api/v1/guilds/{guild_id}/users/{userid}", headers={"Authorization": unbelievaboattoken}) as r:
                 if r.status == 200:
@@ -85,7 +88,7 @@ class MyClient(commands.Bot):
                 else:
                     print(r.status, await r.json())
                     return
-                    
+
         headers = {"Authorization": unbelievaboattoken,
                    'Accept': 'application/json'}
         async with client.session.patch(f"https://unbelievaboat.com/api/v1/guilds/{guild_id}/users/{userid}",
@@ -97,6 +100,7 @@ class MyClient(commands.Bot):
             except Exception as e:
                 print("New exception in addcoins:\n", e)
                 return None
+
 
 client = MyClient(command_prefix=commands.when_mentioned_or(prefix), case_insensitive=True,
                   allowed_mentions=discord.AllowedMentions(everyone=False), intents=discord.Intents.all(),
@@ -112,7 +116,7 @@ client.user_cache = {}
 
 with open("data/payouts.json", "r") as f:
     client.po_data = json.load(f)
-        
+
 if "count" not in client.po_data.keys():
     client.po_data["count"] = 1
 
@@ -122,35 +126,38 @@ if "count" not in client.po_data.keys():
 @tasks.loop(count=1)
 async def init_session():
     client.session = aiohttp.ClientSession()
-    print("\033[1;34mSession: \033[1;32mSuccessful")
+    print("Session: Successful")
 
 init_session.start()
 
-files = []; content = ""
+files = []
+content = ""
 for ext in const.exts:
     try:
         client.load_extension(ext)
-        files.append({'name' : ext, 'success' : True})
+        files.append({'name': ext, 'success': True})
     except Exception as E:
-        files.append({'name' : ext, 'success' : False})
+        files.append({'name': ext, 'success': False})
         print(f'Something is wrong: {E}')
 
 for f in range(len(files)):
     if files[f]['success'] == True:
-        content += f"\033[1;34mFilename: {files[f]['name']} \033[1;32mSuccessful\n"
+        content += f"Filename: {files[f]['name']} Successful\n"
     elif files[f]['success'] == False:
-        content += f"\033[1;34mFilename: {files[f]['name']} \033[1;31mFailed\n"
+        content += f"Filename: {files[f]['name']} Failed\n"
+
 
 @client.command()
 async def reload(ctx, filename):
     if ctx.author.id not in [186896273742233600, 383287544336613385]:
         return await ctx.send("You're not allowed to run this command.")
-    
+
     if filename == "mcd":
-            filename = "mc_madness"
+        filename = "mc_madness"
 
     if f"{filename}.py" not in os.listdir("cogs"):
-        text = '\n'.join([f'[{x}]' for x in os.listdir('cogs') if x.endswith('.py')])
+        text = '\n'.join(
+            [f'[{x}]' for x in os.listdir('cogs') if x.endswith('.py')])
         return await ctx.send(f"```ini\n{text}\n```")
     try:
         client.unload_extension(f"cogs.{filename}")
@@ -159,16 +166,18 @@ async def reload(ctx, filename):
     except Exception as e:
         await ctx.send(f"```yaml\n{e}\n```"[-1500:])
 
+
 @client.command()
 async def load(ctx, filename):
     if ctx.author.id not in [186896273742233600, 383287544336613385]:
         return await ctx.send("You're not allowed to run this command.")
 
     if filename == "mcd":
-            filename = "mc_madness"
+        filename = "mc_madness"
 
     if f"{filename}.py" not in os.listdir("cogs"):
-        text = '\n'.join([f'[{x}]' for x in os.listdir('cogs') if x.endswith('.py')])
+        text = '\n'.join(
+            [f'[{x}]' for x in os.listdir('cogs') if x.endswith('.py')])
         return await ctx.send(f"```ini\n{text}\n```")
     try:
         if filename == "mcd":
@@ -180,12 +189,12 @@ async def load(ctx, filename):
             e = e[-1500:]
         await ctx.send(f"```yaml\n{e}\n```"[-1500:])
 
+
 @client.event
 async def on_ready():
     # os.system("clear") # You are welcome c: - Mooshi
-    result_str = (f"\033[1;32m┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n" + "\033[1;32mBot is Online".center(78) + "\n\033[1;32m┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛")
-    print(result_str.encode('utf-8'))
-    print(content.encode('utf-8'))
+    print("Bot is online.\n")
+    print(content)
 
 client.run(TOKEN)
 

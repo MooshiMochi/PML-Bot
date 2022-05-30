@@ -14,19 +14,19 @@ from paginator import Paginator
 
 mconv = MemberConverter()
 
+
 class MessageLB(commands.Cog):
     def __init__(self, client):
         self.client = client
 
         with open("data/message_logs.json", "r") as f:
             self.msg_data = json.load(f)
-        
+
         if "last_payout" not in self.msg_data.keys():
             self.msg_data["last_payout"] = None
 
         self.pinged = False
         self.ping_ts = 0
-
 
         self.save_data.start()
         self.send_payouts.start()
@@ -51,8 +51,8 @@ class MessageLB(commands.Cog):
             }
         return None
 
-    async def get_user(self, id:int=None) -> str:
-        
+    async def get_user(self, id: int = None) -> str:
+
         await self.client.wait_until_ready()
 
         if id in self.client.user_cache.keys():
@@ -60,7 +60,7 @@ class MessageLB(commands.Cog):
                 return self.client.user_cache[int(id)]
             except KeyError:
                 pass
-        
+
         obj = self.client.guilds[0].get_member(int(id))
         if not obj:
             return f"~~{id}~~"
@@ -73,9 +73,9 @@ class MessageLB(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, msg):
-        
+
         if msg.channel.id not in [866526262759129118, 924778031845896252, 926746018140278814, 926751213649817650, 920493973640978432]:
-            return 
+            return
 
         if msg.author.bot:
             return
@@ -94,7 +94,8 @@ class MessageLB(commands.Cog):
             addon = 1
 
         self.msg_data[str(msg.author.id)]["count"] += addon
-        self.msg_data[str(msg.author.id)]["last_ts"] = datetime.now().timestamp()
+        self.msg_data[str(msg.author.id)
+                      ]["last_ts"] = datetime.now().timestamp()
 
     @tasks.loop(seconds=10)
     async def save_data(self):
@@ -115,7 +116,7 @@ class MessageLB(commands.Cog):
         # 1643605260
 
         if "last_payout" in self.msg_data.keys():
-           
+
             if not self.msg_data["last_payout"]:
                 self.msg_data["last_payout"] = 1643605260
         else:
@@ -127,38 +128,42 @@ class MessageLB(commands.Cog):
 
         if datetime.now().timestamp() >= self.msg_data["last_payout"] + 7*24*60*60:
 
-            data = sorted([[data[0], data[1]] for data in self.msg_data.items() if data[0] != "last_payout"], key=lambda e: e[1]["count"], reverse=True)[:10]
+            data = sorted([[data[0], data[1]] for data in self.msg_data.items(
+            ) if data[0] != "last_payout"], key=lambda e: e[1]["count"], reverse=True)[:10]
 
-            payouts = [500000, 400000, 300000, 200000, 100000, 80000, 60000, 40000, 20000, 10000]
-            
+            payouts = [500000, 400000, 300000, 200000,
+                       100000, 80000, 60000, 40000, 20000, 10000]
+
             guild = self.client.guilds[0]
 
             ch = guild.get_channel(867247651745038376)
 
             for _ in range(10):
-                
-                if data:                   
+
+                if data:
                     try:
                         user_obj = guild.get_member(int(data[_][0])).mention
                     except (TypeError, AttributeError):
                         user_obj = "~~Unknown~~"
 
-                    em = discord.Embed(colro=0x78BB67, description=f"<:Checkmark:886699674277396490> Added <:money:903467440829259796>**{payouts[0]:,}** to {user_obj}'s bank balance.")
+                    em = discord.Embed(
+                        colro=0x78BB67, description=f"<:Checkmark:886699674277396490> Added <:money:903467440829259796>**{payouts[0]:,}** to {user_obj}'s bank balance.")
                     em.set_author(name="Top 10 Weekly Messagesrs Payout", icon_url=await self.icon(self.client.user))
-                    
+
                     await ch.send(embed=em)
-                    
+
                     try:
                         await self.client.addcoins(int(data[_][0]), payouts[0])
                     except IndexError:
                         continue
-                    
-                    print(f"Added {payouts[0]} coins to {data[_][1]['name']} | {data[_][1]['count']}".encode("utf-8"))
+
+                    print(
+                        f"Added {payouts[0]} coins to {data[_][1]['name'].encode('utf-8')} | {data[_][1]['count']}".encode("utf-8"))
                     payouts.pop(0)
 
             self.client.po_data["count"] += 1
-            self.msg_data = {"last_payout": datetime.now().timestamp() + 5*60*60}
-
+            self.msg_data = {
+                "last_payout": datetime.now().timestamp() + 5*60*60}
 
     @tasks.loop(hours=1)
     async def ping(self):
@@ -173,10 +178,10 @@ class MessageLB(commands.Cog):
             await asyncio.sleep(more_sleep)
 
             msg = "<@&912004965537579049>\nITS A 2X MESSAGE EVENT!\n\nEVERY MESSAGE YOU SEND FOR THE NEXT 15 MINUTES WILL COUNT AS 2!"
-        
+
             channel = self.client.guilds[0].get_channel(866526262759129118)
             await channel.send(msg)
-            
+
             self.ping_ts = datetime.now().timestamp()
             self.pinged = True
 
@@ -186,33 +191,32 @@ class MessageLB(commands.Cog):
 
         def e():
             e = requests.get("https://zenquotes.io/api/random")
-           
+
             if e.status_code != 200:
-               
+
                 print("error", e.status_code, e.json())
                 return None
-           
-            return e.json()            
+
+            return e.json()
         f = (await self.client.loop.run_in_executor(None, e))
-        
+
         if not f:
             return
 
         ch = self.client.guilds[0].get_channel(926742220340625419)
-        
+
         em = discord.Embed(color=0x00F8EF, description=f[0]["q"])
         em.set_author(name="Inspirational quotes provided by ZenQuotes API", url="https://zenquotes.io/", icon_url=await self.icon(self.client.user))
-        
-        await ch.send(embed=em)
-        
 
-    async def __messages(self, member:discord.Member=None):
-        
+        await ch.send(embed=em)
+
+    async def __messages(self, member: discord.Member = None):
+
         try:
             test = await self.check(member)
         except TypeError:
             test = "`An Unknown Error has occured. Could not get the member object!`"
-        
+
         try:
             _name = member.name
         except TypeError:
@@ -220,9 +224,11 @@ class MessageLB(commands.Cog):
 
         if test is None:
 
-            ts = f"<t:{int(self.msg_data[str(member.id)]['last_ts'])}:R>" if self.msg_data[str(member.id)]['last_ts'] != 0 else "`N/A`"
-            
-            em = discord.Embed(color=0x00F8EF, description=f"**Count:** {self.msg_data[str(member.id)]['count']}\nLast Message: {ts}")
+            ts = f"<t:{int(self.msg_data[str(member.id)]['last_ts'])}:R>" if self.msg_data[str(
+                member.id)]['last_ts'] != 0 else "`N/A`"
+
+            em = discord.Embed(
+                color=0x00F8EF, description=f"**Count:** {self.msg_data[str(member.id)]['count']}\nLast Message: {ts}")
             em.set_author(name=f"{_name}'s messages stats:", icon_url=await self.icon(self.client.user))
 
             return em
@@ -234,57 +240,59 @@ class MessageLB(commands.Cog):
 
             return em
 
-
     async def __top(self, ctx):
-        
-        em = discord.Embed(color=0x00F8EF, title="Most Active Chatters in Pixels Minecraft Lounge")
+
+        em = discord.Embed(
+            color=0x00F8EF, title="Most Active Chatters in Pixels Minecraft Lounge")
         em.set_author(name="\u200b", icon_url=await self.icon(self.client.user))
 
-        if not self.msg_data:  # If there are no memebrs with that role, return an embed with the number 0 as the user count.
-            
+        # If there are no memebrs with that role, return an embed with the number 0 as the user count.
+        if not self.msg_data:
+
             ad = f"The leaderboard for the biggest chatters in Pixels Minecraft Lounge for week #{self.client.po_data['count']}. The top 10 chatters win cash prizes in the games rooms every week!\n*Messages only count in lounge channels\n\nWeeks end Monday 00:01/12 AM EST and all weekly messages are reset*"
             em.description = ad + "\n\n" + f"`No players yet!`"
-            
+
             await ctx.send(embed=em)
             return
 
         if len(self.msg_data.keys()) <= 10:
-            
-            data = enumerate(sorted([[data[0], data[1]] for data in self.msg_data.items() if data[0] != "last_payout"], key=lambda e: e[1]["count"], reverse=True))
+
+            data = enumerate(sorted([[data[0], data[1]] for data in self.msg_data.items(
+            ) if data[0] != "last_payout"], key=lambda e: e[1]["count"], reverse=True))
 
             users = ""
 
             for user in data:
                 if user[0] == 0:
                     users += f"🏆 - **{user[1][1]['name']}** ({user[1][1]['count']} messages) - <:money:903467440829259796> 500k"
-                
+
                 elif user[0] == 1:
                     users += f"\n🥈 - **{user[1][1]['name']}** ({user[1][1]['count']} messages) - <:money:903467440829259796> 400k"
-               
+
                 elif user[0] == 2:
                     users += f"\n🥉 - **{user[1][1]['name']}** ({user[1][1]['count']} messages) - <:money:903467440829259796> 300k"
-                
+
                 elif user[0] == 3:
                     users += f"\n**{user[0]}.** - **{user[1][1]['name']}** ({user[1][1]['count']} messages) - <:money:903467440829259796> 200k"
-               
+
                 elif user[0] == 4:
                     users += f"\n**{user[0]}.** - **{user[1][1]['name']}** ({user[1][1]['count']} messages) - <:money:903467440829259796> 100k"
-                
+
                 elif user[0] == 5:
                     users += f"\n**{user[0]}.** - **{user[1][1]['name']}** ({user[1][1]['count']} messages) - <:money:903467440829259796> 80k"
-                
+
                 elif user[0] == 6:
                     users += f"\n**{user[0]}.** - **{user[1][1]['name']}** ({user[1][1]['count']} messages) - <:money:903467440829259796> 60k"
-               
+
                 elif user[0] == 7:
                     users += f"\n**{user[0]}.** - **{user[1][1]['name']}** ({user[1][1]['count']} messages) - <:money:903467440829259796> 40k"
-               
+
                 elif user[0] == 8:
                     users += f"\n**{user[0]}.** - **{user[1][1]['name']}** ({user[1][1]['count']} messages) - <:money:903467440829259796> 20k"
-                
+
                 elif user[0] == 9:
                     users += f"\n**{user[0]}.** - **{user[1][1]['name']}** ({user[1][1]['count']} messages) - <:money:903467440829259796> 10k"
-               
+
                 else:
                     users += f"\n**{user[0]}.** - **{user[1][1]['name']}** ({user[1][1]['count']} messages)"
 
@@ -302,9 +310,10 @@ class MessageLB(commands.Cog):
             count = 1
             user_count = 0
 
-            data = sorted([[data[0], data[1]] for data in self.msg_data.items() if data[0] != "last_payout"], key=lambda e: e[1]["count"], reverse=True)
-            total_pages = len(data) // 10 if len(data) % 10 == 0 else len(data) // 10 + 1            
-
+            data = sorted([[data[0], data[1]] for data in self.msg_data.items(
+            ) if data[0] != "last_payout"], key=lambda e: e[1]["count"], reverse=True)
+            total_pages = len(
+                data) // 10 if len(data) % 10 == 0 else len(data) // 10 + 1
 
             for index, key in enumerate(data):  # x == member
 
@@ -339,7 +348,8 @@ class MessageLB(commands.Cog):
                         else:
                             users += f"\n**{user[0]}.** - **{user[1][1]['name']}** ({user[1][1]['count']} messages)"
 
-                    em = discord.Embed(color=0x00F8EF, title="Most Active Chatters in Pixels Minecraft Lounge")
+                    em = discord.Embed(
+                        color=0x00F8EF, title="Most Active Chatters in Pixels Minecraft Lounge")
                     em.set_author(name="\u200b", icon_url=await self.icon(self.client.user))
                     em.set_footer(text=f"{ctx.guild.name} - Page {count}/{total_pages}",
                                   icon_url=str(self.client.user.avatar_url_as(static_format="png", size=2048)))
@@ -354,14 +364,15 @@ class MessageLB(commands.Cog):
 
                 elif user_count == len(data):  # x == members[-1]
 
-                    users = "\n".join(f"**{user[0]}** - **{user[1][1]['name']}** ({user[1][1]['count']} messages)" for user in temp_li)
+                    users = "\n".join(
+                        f"**{user[0]}** - **{user[1][1]['name']}** ({user[1][1]['count']} messages)" for user in temp_li)
 
-                    em = discord.Embed(color=0x00F8EF, title="Most Active Chatters in Pixels Minecraft Lounge")
+                    em = discord.Embed(
+                        color=0x00F8EF, title="Most Active Chatters in Pixels Minecraft Lounge")
                     em.set_author(name="\u200b", icon_url=await self.icon(self.client.user))
                     em.set_footer(text=f"{ctx.guild.name} - Page {count}/{total_pages}",
                                   icon_url=str(self.client.user.avatar_url_as(static_format="png", size=2048)))
 
-                    
                     ad = f"The leaderboard for the biggest chatters in Pixels Minecraft Lounge for week #{self.client.po_data['count']}. The top 10 chatters win cash prizes in the games rooms every week!\n*Messages only count in lounge channels\n\nWeeks end Monday 00:01/12 AM EST and all weekly messages are reset*"
                     em.description = ad + "\n\n" + users
 
@@ -372,10 +383,11 @@ class MessageLB(commands.Cog):
         await Paginator(embeds, ctx).paginate()
 
     @cog_ext.cog_slash(name="messages", guild_ids=[865870663038271489], description="Display top messagers or a player's stats", options=[
-        create_option(name="player", description="Display a player's messagers", option_type=6, required=False)
+        create_option(name="player", description="Display a player's messagers",
+                      option_type=6, required=False)
     ])
-    async def _msgs(self, ctx: SlashContext, player: Optional[discord.Member]=None):
-        
+    async def _msgs(self, ctx: SlashContext, player: Optional[discord.Member] = None):
+
         if player:
             if not isinstance(player, (discord.Member, discord.User)):
                 return await ctx.send("Sorry, I could not find that user.", hidden=True)
@@ -384,37 +396,6 @@ class MessageLB(commands.Cog):
             await self.__top(ctx)
 
 
-    @commands.Cog.listener()
-    async def on_command_error(self, ctx, error):
-        if isinstance(error, commands.CommandNotFound):
-            pass  # Ignore "Command not found" errors to prevent console log spam
-
-        elif isinstance(error, commands.MemberNotFound):
-            print(datetime.now())
-
-            try:
-                print(ctx.message.content, "\n")
-            except Exception as e:
-                print("Tried to print ctx.content. Failed. Exception:", e, "\n", "Error", error)
-
-        elif isinstance(error, commands.UserNotFound):
-            print(datetime.now())
-
-            try:
-                print(ctx.message.content, "\n")
-            except Exception as e:
-                print("Tried to print ctx.content. Failed. Exception:", e, "\n", "Error", error)
-
-        else:
-            print(datetime.now())
-
-            try:
-                print(ctx.message.content, "\n")
-            except Exception as e:
-                print("Tried to print ctx.content. Failed. Exception:", e, "\n", "Error", error)
-            raise error
-
-    
 def setup(client):
     if not client.debug:
         client.add_cog(MessageLB(client))
