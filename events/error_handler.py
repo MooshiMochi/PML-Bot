@@ -300,7 +300,8 @@ class ErrorHandler(commands.Cog):
                 embed = discord.Embed(title="Hey, you can't do that!",
                                       description=f"Sorry, you need the permission `{perms}` to execute this command.",
                                       color=self.client.failure)
-                embed.set_thumbnail(url=self.client.png)
+                embed.set_thumbnail(url=self.client.user.avatar_url_as(
+                    static_format='png', size=2048))
                 try:
                     return await ctx.embed(embed)
                 except discord.HTTPException:
@@ -309,7 +310,8 @@ class ErrorHandler(commands.Cog):
                 embed = discord.Embed(title="Hey, you can't do that!",
                                       description=f"Sorry, you need the permissions `{perms}` to execute this command.",
                                       color=self.client.failure)
-                embed.set_thumbnail(url=self.client.png)
+                embed.set_thumbnail(url=self.client.user.avatar_url_as(
+                    static_format='png', size=2048))
                 try:
                     return await ctx.embed(embed)
                 except discord.HTTPException:
@@ -355,7 +357,7 @@ class ErrorHandler(commands.Cog):
                                           f"Command: `/{ctx.name} {_arguments}`\n",
                                           color=self.client.failure)
                     embed.set_footer(text="Error Handler",
-                                     icon_url=self.client.png)
+                                     icon_url=self.client.user.avatar_url_as(static_format='png', size=2048))
                     embed.timestamp = datetime.utcnow()
 
                     if len(tb) < 2000:
@@ -600,7 +602,8 @@ class ErrorHandler(commands.Cog):
                 embed = discord.Embed(title="Hey, you can't do that!",
                                       description=f"Sorry, you need the permission `{perms}` to execute this command.",
                                       color=self.client.failure)
-                embed.set_thumbnail(url=self.client.png)
+                embed.set_thumbnail(url=self.client.user.avatar_url_as(
+                    static_format='png', size=2048))
                 try:
                     return await ctx.embed(embed)
                 except discord.HTTPException:
@@ -609,7 +612,8 @@ class ErrorHandler(commands.Cog):
                 embed = discord.Embed(title="Hey, you can't do that!",
                                       description=f"Sorry, you need the permissions `{perms}` to execute this command.",
                                       color=self.client.failure)
-                embed.set_thumbnail(url=self.client.png)
+                embed.set_thumbnail(url=self.client.user.avatar_url_as(
+                    static_format='png', size=2048))
                 try:
                     return await ctx.embed(embed)
                 except discord.HTTPException:
@@ -648,7 +652,7 @@ class ErrorHandler(commands.Cog):
             #                                               f"Command: `{ctx.message.content}`\n\n```\n{str(tb)}\n```",
             #                                   color=self.client.failure)
             #             embed.set_footer(text="Error Handler",
-            #                              icon_url=self.client.png)
+            #                              icon_url=self.client.user.avatar_url_as(static_format='png', size=2048))
             #             embed.timestamp = datetime.utcnow()
             #         else:
             #             embed = discord.Embed(title=f"Exception in '{ctx.command}'",
@@ -658,7 +662,7 @@ class ErrorHandler(commands.Cog):
             #                                               f"Traceback is too long to be displayed.```",
             #                                   color=self.client.failure)
             #             embed.set_footer(text="Error Handler",
-            #                              icon_url=self.client.png)
+            #                              icon_url=self.client.user.avatar_url_as(static_format='png', size=2048))
             #             embed.timestamp = datetime.utcnow()
 
             #             with open('logs/last_command_error.log', 'a') as latest_logfile:
