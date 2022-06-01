@@ -1,3 +1,4 @@
+from asyncio import constants
 from typing import Type
 import discord
 from discord.ext import commands, tasks
@@ -14,6 +15,7 @@ from discord_slash.utils import manage_components
 import random
 import asyncio
 from discord.ext.commands import MemberConverter
+from constants import const
 
 mconv = MemberConverter()
 
@@ -55,7 +57,7 @@ class McMadness(commands.Cog):
         self.eliminated = []
 
         self.get_ready.start()
-        self.check_for_monthly_pay.start()
+        self.check_for_monthly_pay.start() if not const.DEBUG else None
 
     @tasks.loop(count=1)
     async def get_ready(self):

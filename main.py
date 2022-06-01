@@ -17,6 +17,9 @@ from discord.ext import commands, tasks
 from discord_slash import SlashCommand
 from dotenv import load_dotenv
 from constants import const
+import discord_slash
+from discord_slash.error import AlreadyResponded
+from datetime import datetime
 
 load_dotenv()
 
@@ -34,6 +37,41 @@ guild_id = 865870663038271489
 
 if not "logs" in os.listdir():
     os.system("mkdir logs")
+
+
+class PixelSlashContext(SlashContext):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+    async def embed(self, embed, *, footer=None):
+
+        if footer is None:
+            footer = "PML"
+        embed.set_footer(icon_url=self.bot.png,
+                         text=f"Pixel Master | {footer}")
+        embed.timestamp = datetime.utcnow()
+
+        try:
+            if self.deferred:
+                if not self.responded:
+                    return await self.send(embed=embed, hidden=self._deferred_hidden)
+
+                return await self.channel.send(embed=embed)
+            if not self.responded:
+                return await self.send(embed=embed)
+
+            try:
+                return await self.channel.send(embed=embed)
+            except AlreadyResponded:
+                guild = self.bot.get_guild(self.guild_id)
+                ch = guild.get_channel(self.channel_id)
+                return await ch.send(embed=embed)
+        except discord.HTTPException as e:
+            raise e
+
+
+discord_slash.context.SlashContext = PixelSlashContext
 
 
 class MyClient(commands.Bot):

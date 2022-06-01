@@ -11,6 +11,7 @@ from typing import Optional
 from discord.ext.commands import MemberConverter
 import requests
 from paginator import Paginator
+from constants import const
 
 mconv = MemberConverter()
 
@@ -29,7 +30,7 @@ class MessageLB(commands.Cog):
         self.ping_ts = 0
 
         self.save_data.start()
-        self.send_payouts.start()
+        self.send_payouts.start() if not const.DEBUG else None
         self.ping.start()
         self.daily_quote.start()
         self.users_in_paginator = {}
@@ -183,9 +184,16 @@ class MessageLB(commands.Cog):
 
             msg = "<@&912004965537579049>\nITS A 2X MESSAGE EVENT!\n\nEVERY MESSAGE YOU SEND FOR THE NEXT 15 MINUTES WILL COUNT AS 2!"
 
-            channel = self.client.guilds[0].get_channel(866526262759129118)
-            await channel.send(msg)
+            found = False
+            for guild in self.client.guilds:
+                channel = guild.get_channel(866526262759129118)
+                if channel:
+                    await channel.send(msg)
+                    found = True
+                    break
 
+            if not found:
+                print("[Message Event]> No channel found.")
             self.ping_ts = datetime.now().timestamp()
             self.pinged = True
 
@@ -207,12 +215,19 @@ class MessageLB(commands.Cog):
         if not f:
             return
 
-        ch = self.client.guilds[0].get_channel(926742220340625419)
+        found = False
+        for guild in self.client.guilds:
+            ch = guild.get_channel(926742220340625419)
+            if ch:
+                em = discord.Embed(color=0x00F8EF, description=f[0]["q"])
+                em.set_author(name="Inspirational quotes provided by ZenQuotes API", url="https://zenquotes.io/", icon_url=await self.icon(self.client.user))
 
-        em = discord.Embed(color=0x00F8EF, description=f[0]["q"])
-        em.set_author(name="Inspirational quotes provided by ZenQuotes API", url="https://zenquotes.io/", icon_url=await self.icon(self.client.user))
+                await ch.send(embed=em)
+                found = True
+                break
 
-        await ch.send(embed=em)
+        if found == False:
+            print("[Daily Quote]> No channel found.")
 
     async def __messages(self, member: discord.Member = None):
 
@@ -227,7 +242,6 @@ class MessageLB(commands.Cog):
             _name = "~~Unknown~~"
 
         if test is None:
-
             ts = f"<t:{int(self.msg_data[str(member.id)]['last_ts'])}:R>" if self.msg_data[str(
                 member.id)]['last_ts'] != 0 else "`N/A`"
 
@@ -245,7 +259,6 @@ class MessageLB(commands.Cog):
             return em
 
     async def __top(self, ctx):
-
         em = discord.Embed(
             color=0x00F8EF, title="Most Active Chatters in Pixels Minecraft Lounge")
         em.set_author(name="\u200b", icon_url=await self.icon(self.client.user))
