@@ -19,6 +19,7 @@ from dotenv import load_dotenv
 from constants import const
 import discord_slash
 from discord_slash.error import AlreadyResponded
+from discord_slash import SlashContext
 from datetime import datetime
 
 load_dotenv()
@@ -40,7 +41,6 @@ if not "logs" in os.listdir():
 
 
 class PixelSlashContext(SlashContext):
-
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
