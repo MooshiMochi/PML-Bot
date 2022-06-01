@@ -7,7 +7,7 @@ from paginator import Paginator
 from datetime import datetime
 from discord.mentions import AllowedMentions
 from discord_slash import SlashContext
-from discord_slash.utils.manage_commands import create_option
+from discord_slash.utils.manage_commands import create_option, create_choice
 from discord_slash import cog_ext
 from discord_slash.model import ButtonStyle
 from discord_slash.utils import manage_components
@@ -841,7 +841,7 @@ class McMadness(commands.Cog):
 
         return await ctx.send(f"Deleted `{question_to_delete}` from the questions bank in the {difficulty.lower().capitalize()} difficulty.")
 
-    async def __messages_(self, member: discord.Member = None):
+    async def __mm_player_stats(self, member: discord.Member = None):
 
         try:
             the_name = member.name
@@ -891,7 +891,7 @@ class McMadness(commands.Cog):
             em.author.name = "Error!"
             return em
 
-    async def __top_(self, ctx, tournament_or_casual):
+    async def __mm_lb(self, ctx, tournament_or_casual):
 
         em = discord.Embed(
             color=0x00F8EF, title=f"Minecraft Madness ({tournament_or_casual.lower().capitalize()}) Leaderboard")
@@ -1128,68 +1128,28 @@ class McMadness(commands.Cog):
 
         await Paginator(embeds, ctx).paginate()
 
-    @cog_ext.cog_slash(name='mm_lb',
+    @cog_ext.cog_slash(name='mm_stats', guild_ids=guild_ids, description="View your or someone else's Minecraft Madness stats.",
+                       options=[create_option(name="player", description="The player you want to view stats for.", option_type=6, required=False)])
+    async def mm_stats(self, ctx: SlashContext, player: discord.Member = None):
+        await ctx.defer(hidden=True)
+        if not player:
+            player = ctx.author
+
+        return await ctx.send(embed=await self.__mm_player_stats(player))
+
+    @cog_ext.cog_slash(name='mm_leaderboard',
                        guild_ids=guild_ids,
                        description='Display the leaderboard for Minecraft Madness Tournaments or Casual most winners.',
                        options=[
                            create_option(
-                               'tournaments_or_casual', 'The leaderboard type to view: Casual or Tournaments leaderboard', 3, False),
+                               'type', 'The leaderboard type to view: Casual or Tournaments leaderboard', 3, False, choices=[
+                                   create_choice(
+                                       value="tournaments", name="Tournaments"),
+                                   create_choice(value="casual", name="Casual")]),
                        ])
-    async def _mm_lb(self, ctx: SlashContext, tournaments_or_casual: str = None):
-
-        if not tournaments_or_casual:
-
-            tournaments_or_casual = ctx.author
-
-            return await ctx.send(embed=await self.__messages_(tournaments_or_casual))
-
-        elif (
-            ("t" not in tournaments_or_casual.lower()) and (
-                "c" not in tournaments_or_casual.lower())
-        ):
-            try:
-                if tournaments_or_casual:
-                    tournaments_or_casual = await mconv.convert(tournaments_or_casual)
-                    return await ctx.send(embed=await self.__messages_(tournaments_or_casual))
-                else:
-                    raise commands.MemberNotFound
-            except (commands.MemberNotFound, TypeError):
-                print(datetime.now(), "Self Handled!")
-                return await ctx.send(f"I couldn't find '{tournaments_or_casual}' in this server.")
-
+    async def _mm_lb(self, ctx: SlashContext, lb_type: str = None):
         await ctx.defer(hidden=False)
-
-        if "t" in tournaments_or_casual.lower():
-            await self.__top_(ctx, "tournaments")
-        elif "c" in tournaments_or_casual.lower():
-            await self.__top_(ctx, "casual")
-
-    @commands.command()
-    async def mm_lb(self, ctx, tournaments_or_casual: str = None):
-        if not tournaments_or_casual:
-
-            tournaments_or_casual = ctx.author
-
-            return await ctx.send(embed=await self.__messages_(tournaments_or_casual))
-
-        elif (
-            ("t" not in tournaments_or_casual.lower()) and (
-                "c" not in tournaments_or_casual.lower())
-        ):
-            try:
-                if tournaments_or_casual:
-                    tournaments_or_casual = await mconv.convert(tournaments_or_casual)
-                    return await ctx.send(embed=await self.__messages_(tournaments_or_casual))
-                else:
-                    raise commands.MemberNotFound
-            except (commands.MemberNotFound, TypeError):
-                print(datetime.now(), "Self Handled!")
-                return await ctx.send(f"I couldn't find '{tournaments_or_casual}' in this server.")
-
-        if "t" in tournaments_or_casual.lower():
-            await self.__top_(ctx, "tournaments")
-        elif "c" in tournaments_or_casual.lower():
-            await self.__top_(ctx, "casual")
+        await self.__mm_lb(ctx, lb_type)
 
 
 def setup(client):
