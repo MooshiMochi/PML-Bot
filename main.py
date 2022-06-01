@@ -48,7 +48,7 @@ class PixelSlashContext(SlashContext):
 
         if footer is None:
             footer = "PML"
-        embed.set_footer(icon_url=self.bot.png,
+        embed.set_footer(icon_url=self.bot.user.avatar_url_as(static_format="png", size=2048),
                          text=f"Pixel Master | {footer}")
         embed.timestamp = datetime.utcnow()
 
