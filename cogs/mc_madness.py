@@ -1,5 +1,3 @@
-from asyncio import constants
-from typing import Type
 import discord
 from discord.ext import commands, tasks
 import json
@@ -18,7 +16,6 @@ from discord.ext.commands import MemberConverter
 from constants import const
 
 mconv = MemberConverter()
-
 
 "DOCS: https://discord-py-slash-command.readthedocs.io/en/components/discord_slash.context.html#discord_slash.context.ComponentContext"
 # 865870663038271489 -PX, 840150806682664970 -SH
@@ -1136,22 +1133,20 @@ class McMadness(commands.Cog):
         await ctx.defer(hidden=True)
         if not player:
             player = ctx.author
+        return await ctx.send(embed=await self.__mm_player_stats(player), hidden=True)
 
-        return await ctx.send(embed=await self.__mm_player_stats(player))
-
-    @cog_ext.cog_slash(name='mm_leaderboard',
-                       guild_ids=guild_ids,
-                       description='Display the leaderboard for Minecraft Madness Tournaments or Casual most winners.',
-                       options=[
-                           create_option(
-                               'type', 'The leaderboard type to view: Casual or Tournaments leaderboard', 3, False, choices=[
-                                   create_choice(
-                                       value="tournaments", name="Tournaments"),
-                                   create_choice(value="casual", name="Casual")]),
-                       ])
-    async def _mm_lb(self, ctx: SlashContext, lb_type: str = None):
+    @cog_ext.cog_slash(
+        name='mm_leaderboard',
+        guild_ids=guild_ids,
+        description='Display the leaderboard for Minecraft Madness Tournaments or Casual most winners.',
+        options=[
+            create_option(
+                    'leaderboard_type', 'The leaderboard type to view: Casual or Tournaments leaderboard', 3, True, choices=[
+                        create_choice(value="tournaments", name="Tournaments"),
+                        create_choice(value="casual", name="Casual")])])
+    async def _mm_lb(self, ctx: SlashContext, leaderboard_type: str = None):
         await ctx.defer(hidden=False)
-        await self.__mm_lb(ctx, lb_type)
+        await self.__mm_lb(ctx, leaderboard_type)
 
 
 def setup(client):

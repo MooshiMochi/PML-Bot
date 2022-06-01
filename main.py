@@ -231,7 +231,7 @@ async def load(ctx, filename):
 @client.event
 async def on_ready():
     # os.system("clear") # You are welcome c: - Mooshi
-    print("Bot is online.\n")
+    print("Bot is online.\nDebug:", const.DEBUG)
     print(content)
 
 client.run(TOKEN)

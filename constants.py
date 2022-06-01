@@ -1,3 +1,6 @@
+import os
+
+
 class Constants:
     def __init__(self):
         self.exts = (
@@ -8,7 +11,9 @@ class Constants:
             "events.error_handler"
         )
 
-        self.DEBUG = False
+        self.DEBUG = True
+        if os.getlogin() == "Administrator":
+            self.DEBUG = False
 
 
 const = Constants()
