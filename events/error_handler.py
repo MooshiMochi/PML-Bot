@@ -338,8 +338,7 @@ class ErrorHandler(commands.Cog):
                 raise error
             except Exception:
                 tb = traceback.format_exc()
-            self.client.logger.error(
-                f"An unhandled error has occurred: {str(error)} - More details can be found in logs/error.log")
+            print(f"An unhandled error has occurred: {str(error)} - More details can be found in logs/error.log")
             with open('logs/error.log', 'a', encoding="utf8") as logfile:
                 logfile.write("NEW ERROR\n\n")
                 logfile.write(str(tb))
@@ -636,8 +635,7 @@ class ErrorHandler(commands.Cog):
                 raise error
             except Exception:
                 tb = traceback.format_exc()
-            self.client.logger.error(
-                f"An unhandled error has occurred: {str(error)} - More details can be found in logs/error.log")
+            print(f"An unhandled error has occurred: {str(error)} - More details can be found in logs/error.log")
             with open('logs/error.log', 'a', encoding="utf8") as logfile:
                 logfile.write("NEW ERROR\n\n")
                 logfile.write(str(tb))
