@@ -168,7 +168,7 @@ class MessageLB(commands.Cog):
 
             self.client.po_data["count"] += 1
             self.msg_data = {
-                "last_payout": datetime.now().timestamp() + 5*60*60}
+                "last_payout": datetime.now().timestamp()}
 
     @tasks.loop(hours=1)
     async def ping(self):
